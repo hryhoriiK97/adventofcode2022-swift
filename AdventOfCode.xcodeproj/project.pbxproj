@@ -156,6 +156,7 @@
 		39C3D0AC275572BC00B2F989 /* AdventOfCodeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdventOfCodeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		39C3D0B3275572E500B2F989 /* Day1Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day1Tests.swift; sourceTree = "<group>"; };
 		4AAA68362ACC8308008BCF9F /* day1_input.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = day1_input.txt; path = "/Users/tdsoft/Desktop/training-projects/adventofcode2022-swift/AdventOfCode/day1_input.txt"; sourceTree = "<absolute>"; };
+		4AAA68372ACC8C7E008BCF9F /* day2_input.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = day2_input.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -274,6 +275,7 @@
 			isa = PBXGroup;
 			children = (
 				4AAA68362ACC8308008BCF9F /* day1_input.txt */,
+				4AAA68372ACC8C7E008BCF9F /* day2_input.txt */,
 			);
 			name = Inputs;
 			sourceTree = "<group>";
