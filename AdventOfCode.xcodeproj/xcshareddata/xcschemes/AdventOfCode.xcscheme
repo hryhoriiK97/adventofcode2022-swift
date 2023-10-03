@@ -52,7 +52,7 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "-i /path/to/inputs"
+            argument = "-i  /Users/tdsoft/Desktop/training-projects/adventofcode2022-swift/AdventOfCode/"
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument

@@ -5,30 +5,44 @@
 
 import Foundation
 
-final class Day1: Day {
-    func part1(_ input: String) -> CustomStringConvertible {
-        var set = Set<Int>()
-        let entries = input.split(separator: "\n").compactMap { Int($0) }
-        for entry in entries {
-            if set.contains(2020 - entry) {
-                return entry * (2020 - entry)
-            }
-            set.insert(entry)
+func parseInputToElvesStocks(input: String) -> [[Int]] {
+    input.split(separator: "\n\n").lazy.map { section in
+        section.split(separator: "\n").lazy.compactMap {  elfCalories in
+            Int(elfCalories)
         }
-        return -1
+    }
+}
+
+func calculateHighestTotalCalories(elvesStocks: [[Int]]) -> Int {
+    elvesStocks.lazy.reduce(0) { maxTotal, elfStock in
+        let currentTotal = elfStock.reduce(0, +)
+        return max(maxTotal, currentTotal)
+    }
+}
+
+func calculateTotalCaloriesForThreeElves(elvesStocks: [[Int]]) -> Int {
+    elvesStocks.lazy.map { stockPerElf in
+        stockPerElf.reduce(0, +)
+    }.lazy.sorted(by: >).prefix(3).reduce(0, +)
+}
+
+
+final class Day1: Day {
+    
+    func part1(_ input: String) -> CustomStringConvertible {
+        let elvesStocks = parseInputToElvesStocks(input: input)
+        
+        let highestCaloriesTotal = calculateHighestTotalCalories(elvesStocks: elvesStocks)
+        
+        return highestCaloriesTotal;
     }
 
+
     func part2(_ input: String) -> CustomStringConvertible {
-        var set = Set<Int>()
-        let entries = input.split(separator: "\n").compactMap { Int($0) }
-        for (index, entry) in entries.enumerated() {
-            for entry2 in entries[index + 1..<entries.count] {
-                if set.contains(2020 - entry - entry2) {
-                    return entry * entry2 * (2020 - entry - entry2)
-                }
-                set.insert(entry2)
-            }
-        }
-        return -1
+        let elvesStocks = parseInputToElvesStocks(input: input)
+        
+        let caloriesTotalPerThreeElves = calculateTotalCaloriesForThreeElves(elvesStocks: elvesStocks)
+        
+        return caloriesTotalPerThreeElves
     }
 }
